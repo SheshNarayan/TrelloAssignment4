@@ -1,0 +1,51 @@
+shechakr@WKWIN4809749 MINGW64 /d/Core_XT_Training/vagrant-ubuntu-xenial-node-8-master/WebpackDevSetupFinal (master)
+$ ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --host 0.0.0.0 --watch-poll
+
+
+view.js
+-createBoard(Board name)
+-createboards(List of Boards)
+-createList(boardId, listId, listName)
+-createLists(board)
+-createCard(board-id, list-id, card)
+
+=================================
+controller.js
+$('...')
+jquery selecotr
+jquery event handling
+jquery deferred event handling
+================================
+model.js
+var boards = [];
+var selectedBoardId = -99;
+
+createBoard(boardName){
+		boards[boards.length] = {
+		name: "board name",
+		lists: []
+	}
+}
+
+index.js
+
+<div id="" board-id="1">
+</div>
+
+<div board-id=1 list-id=1>
+</div>
+
+boards =[]
+boards[boards.length] = {
+	name: "board name",
+	lists: []
+}
+
+boards[selectBoardId].lists[boards[selectBoardId].lists.length] = {
+	name : "list name",
+	cards : []
+}
+
+boards[selectBoardId].lists[boards[selectBoardId].lists.length].cards[cardLength] = {
+	name : "Card name"
+}

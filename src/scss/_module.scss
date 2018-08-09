@@ -1,0 +1,98 @@
+#logo{
+    width: 9rem;
+    height: 2.5rem;
+}
+
+.card{
+  background-color: #a88b8b;
+}
+
+.card-detail {
+    background-color: #9ee7c5;
+}
+a{
+    color: #e7e7e7;
+    text-decoration: none;
+}
+a:hover {
+    color: #0e421b;
+    text-decoration: none;
+}
+.centered {
+    position: absolute;
+    top: 45%;
+    left: 35%;
+ }
+
+.boardsBox{
+	width: 200px;
+    margin: 10px;
+    min-height: 200px;
+    text-align: center;
+	border: solid;
+    font-weight: bold;
+    height: 100%;
+ 
+}
+
+.listBox{
+	min-width: 300px;
+    margin: 13px;
+    min-height: 175px;
+    height: 100%;
+}
+
+.mycard{
+	padding: 3px 8px 5px 14px;
+    margin: 3px;
+}
+.card_list{
+	background-color: #e8aeae;
+}
+
+.icon{
+	width:1.5rem;
+	height:1.5rem;
+    margin: 0px .2rem;
+}
+
+.boardEditIcon, .boardDeleteIcon{
+    padding: 0px;
+    border: 0px;
+}
+
+.listIcon{
+	padding: 0px;
+    border: 0px;
+    margin-right: 3px;
+}
+
+.form-inline{
+	flex-flow: nowrap;
+}
+.modal-title{
+    color: green !important;
+}
+
+.navbar{
+	background-color: #4ca7a2!important;
+}
+
+p{
+	color: #499e3a;
+}
+body{
+	background-image: url("../img/bodybackground.jpg");
+	background-size: cover;
+}
+
+#boardBtnId,  #listBtnId{
+	margin-left: 40%;
+}
+
+#boardList{
+	min-height: 400px;
+}
+#boardDetails{
+	min-height: 400px;	
+}

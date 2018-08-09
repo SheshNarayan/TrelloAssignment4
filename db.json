@@ -1,0 +1,8 @@
+{
+  "boards": [
+    {
+      "board": "[{\"name\":\"Board1\",\"lists\":[{\"name\":\"List111\",\"cards\":[{\"name\":\"TE\"}]},{\"name\":\"List2\",\"cards\":[{\"name\":\"ewrew\"},{\"name\":\"tewrew\"}]}]},{\"name\":\"Board2\",\"lists\":[{\"name\":\"TEST\",\"cards\":[{\"name\":\"Card\"},{\"name\":\"TE\"}]}]},{\"name\":\"Board3\",\"lists\":[{\"name\":\"List3\",\"cards\":[{\"name\":\"Card3\"}]}]}]",
+      "id": 1
+    }
+  ]
+}
