@@ -21247,18 +21247,18 @@ function showListEdit(event) {
   _view2.default.showListEditForm(event.target.getAttribute('boardlistId'));
 }
 $('#boardDetails').on('click', '.listEditIcon', showListEdit);
-function deleteList(event) {
+function DELETELISTONBOARD(event) {
   _state2.default.dispatch({
-    type: 'DELETELIST',
+    type: 'DELETELISTONBOARD',
     listId: event.target.getAttribute('boardlistId')
   });
 }
-$('#boardDetails').on('click', '.listDeleteIcon', deleteList);
+$('#boardDetails').on('click', '.listDeleteIcon', DELETELISTONBOARD);
 function updateListDetails(event) {
   if (event.keyCode === 13) {
     event.preventDefault();
     _state2.default.dispatch({
-      type: 'UPDATELIST',
+      type: 'UPDATELISTONBOARD',
       name: event.target.value,
       listId: event.target.getAttribute('boardlistId')
     });
@@ -21279,7 +21279,7 @@ function addNewCard(event) {
   if (event.keyCode === 13) {
     event.preventDefault();
     _state2.default.dispatch({
-      type: 'ADDCARD',
+      type: 'ADDCARDINLIST',
       name: event.target.value,
       listId: event.target.getAttribute('boardlistId')
     });
@@ -21312,7 +21312,7 @@ function updateCard(event) {
     var listId = event.target.getAttribute('boardlistId');
     var cardId = event.target.getAttribute('cardViewId');
     _state2.default.dispatch({
-      type: 'UPDATECARD',
+      type: 'UPDATECARDONLIST',
       name: event.target.value,
       listId: listId,
       cardId: cardId
@@ -21326,16 +21326,16 @@ function updateCard(event) {
   return true;
 }
 $('#boardDetails').on('keypress', 'input.cardInput', updateCard);
-function deleteCard(event) {
+function DELETECARDFROMLIST(event) {
   var listId = event.target.getAttribute('boardlistId');
   var cardId = event.target.getAttribute('cardViewId');
   _state2.default.dispatch({
-    type: 'DELETECARD',
+    type: 'DELETECARDFROMLIST',
     listId: listId,
     cardId: cardId
   });
 }
-$('#boardDetails').on('click', '.cardDeleteIcon', deleteCard);
+$('#boardDetails').on('click', '.cardDeleteIcon', DELETECARDFROMLIST);
 
 function showAddCards(event) {
   _view2.default.showAddCards(event.target.getAttribute('boardlistId'));
@@ -21585,7 +21585,7 @@ function createList() {
   $('body').removeClass('modal-open');
   $('.modal-backdrop').remove();
   if (listInput.value) {
-    _state2.default.dispatch({ type: 'CREATELIST', name: listInput.value });
+    _state2.default.dispatch({ type: 'CREATELISTONBOARD', name: listInput.value });
   }
 }
 $('#navabarId').on('click', '#listBtnId', createList);
@@ -21809,7 +21809,7 @@ function reducer() {
         nextState.boards[_boardId2].name = _name;
         break;
       }
-    case 'CREATELIST':
+    case 'CREATELISTONBOARD':
       {
         var _name2 = action.name;
 
@@ -21820,7 +21820,7 @@ function reducer() {
         };
         break;
       }
-    case 'UPDATELIST':
+    case 'UPDATELISTONBOARD':
       {
         var _name3 = action.name,
             listId = action.listId;
@@ -21829,7 +21829,7 @@ function reducer() {
         nextState.boards[_boardId4].lists[listId].name = _name3;
         break;
       }
-    case 'DELETELIST':
+    case 'DELETELISTONBOARD':
       {
         var _listId = action.listId;
 
@@ -21837,7 +21837,7 @@ function reducer() {
         nextState.boards[_boardId5].lists.splice(_listId, 1);
         break;
       }
-    case 'ADDCARD':
+    case 'ADDCARDINLIST':
       {
         var _boardId6 = currentState.selectedBid;
         var _listId2 = action.listId,
@@ -21865,7 +21865,7 @@ function reducer() {
         });
         break;
       }
-    case 'DELETECARD':
+    case 'DELETECARDFROMLIST':
       {
         var _boardId8 = currentState.selectedBid;
         var _listId4 = action.listId,
@@ -21874,7 +21874,7 @@ function reducer() {
         nextState.boards[_boardId8].lists[_listId4].cards.splice(cardId, 1);
         break;
       }
-    case 'UPDATECARD':
+    case 'UPDATECARDONLIST':
       {
         var _boardId9 = currentState.selectedBid;
         var _listId5 = action.listId,

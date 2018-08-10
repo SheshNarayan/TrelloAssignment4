@@ -10,20 +10,20 @@ function showListEdit(event) {
 // Adding Event onclick listener on List Edit icon button
 $('#boardDetails').on('click', '.listEditIcon', showListEdit);
 
-function deleteList(event) {
+function DELETELISTONBOARD(event) {
   trelloStore.dispatch({
-    type: 'DELETELIST',
+    type: 'DELETELISTONBOARD',
     listId: event.target.getAttribute('boardlistId'),
   });
 }
 // Adding Event onclick listener on List Delete icon button
-$('#boardDetails').on('click', '.listDeleteIcon', deleteList);
+$('#boardDetails').on('click', '.listDeleteIcon', DELETELISTONBOARD);
 
 function updateListDetails(event) {
   if (event.keyCode === 13) { // Enter Key
     event.preventDefault();
     trelloStore.dispatch({
-      type: 'UPDATELIST',
+      type: 'UPDATELISTONBOARD',
       name: event.target.value,
       listId: event.target.getAttribute('boardlistId'),
     });
@@ -46,7 +46,7 @@ function addNewCard(event) {
   if (event.keyCode === 13) { // Enter Key
     event.preventDefault();
     trelloStore.dispatch({
-      type: 'ADDCARD',
+      type: 'ADDCARDINLIST',
       name: event.target.value,
       listId: event.target.getAttribute('boardlistId'),
     });
@@ -81,7 +81,7 @@ function updateCard(event) {
     var listId = event.target.getAttribute('boardlistId');
     var cardId = event.target.getAttribute('cardViewId');
     trelloStore.dispatch({
-      type: 'UPDATECARD',
+      type: 'UPDATECARDONLIST',
       name: event.target.value,
       listId,
       cardId,
@@ -98,17 +98,17 @@ function updateCard(event) {
 // Adding Event keypress listener on Card Edit Input Textbox
 $('#boardDetails').on('keypress', 'input.cardInput', updateCard);
 
-function deleteCard(event) {
+function DELETECARDFROMLIST(event) {
   var listId = event.target.getAttribute('boardlistId');
   var cardId = event.target.getAttribute('cardViewId');
   trelloStore.dispatch({
-    type: 'DELETECARD',
+    type: 'DELETECARDFROMLIST',
     listId,
     cardId,
   });
 }
 // Adding Event onclick listener on Delete icon button on card
-$('#boardDetails').on('click', '.cardDeleteIcon', deleteCard);
+$('#boardDetails').on('click', '.cardDeleteIcon', DELETECARDFROMLIST);
 
 function showAddCards(event) {
   listBox.showAddCards(event.target.getAttribute('boardlistId'));

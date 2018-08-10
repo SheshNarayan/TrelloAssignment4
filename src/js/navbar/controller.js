@@ -35,7 +35,7 @@ function createList() {
   $('body').removeClass('modal-open');
   $('.modal-backdrop').remove();
   if (listInput.value)
-    trelloStore.dispatch({ type: 'CREATELIST', name: listInput.value });
+    trelloStore.dispatch({ type: 'CREATELISTONBOARD', name: listInput.value });
 }
 // Adding Event listener onclick on Modal CreateList Save Button
 $('#navabarId').on('click', '#listBtnId', createList);

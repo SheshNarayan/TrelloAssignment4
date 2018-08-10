@@ -44,8 +44,8 @@ function reducer(currentState = { selectedBid: -1, boards: [] }, action) {
       nextState.boards[boardId].name = name;
       break;
 
-    case 'CREATELIST':
-      console.log("reducer CREATELIST");
+    case 'CREATELISTONBOARD':
+      console.log("reducer CREATELISTONBOARD");
       name = action.name;
       boardId = currentState.selectedBid;
       nextState.boards[boardId].lists[nextState.boards[boardId].lists.length] = {
@@ -53,23 +53,23 @@ function reducer(currentState = { selectedBid: -1, boards: [] }, action) {
       };
       break;
 
-    case 'UPDATELIST':
-      console.log("reducer UPDATELIST");
+    case 'UPDATELISTONBOARD':
+      console.log("reducer UPDATELISTONBOARD");
       name = action.name;
       var listId = action.listId;
       boardId = currentState.selectedBid;
       nextState.boards[boardId].lists[listId].name = name;
       break;
 
-    case 'DELETELIST':
-      console.log("reducer DELETELIST");
+    case 'DELETELISTONBOARD':
+      console.log("reducer DELETELISTONBOARD");
       var listId = action.listId;
       boardId = currentState.selectedBid;
       nextState.boards[boardId].lists.splice(listId, 1);
       break;
 
-    case 'ADDCARD':
-      console.log("reducer ADDCARD");
+    case 'ADDCARDINLIST':
+      console.log("reducer ADDCARDINLIST");
       boardId = currentState.selectedBid;
       name = action.name;
       var listId = action.listId;
@@ -78,16 +78,16 @@ function reducer(currentState = { selectedBid: -1, boards: [] }, action) {
       nextState.selectedListId = listId;
       break;
 
-    case 'DELETECARD':
-      console.log("reducer DELETECARD");
+    case 'DELETECARDFROMLIST':
+      console.log("reducer DELETECARDFROMLIST");
       boardId = currentState.selectedBid;
       var listId = action.listId;
       var cardId = action.cardId;
       nextState.boards[boardId].lists[listId].cards.splice(cardId, 1);
       break;
 
-    case 'UPDATECARD':
-      console.log("reducer UPDATECARD");
+    case 'UPDATECARDONLIST':
+      console.log("reducer UPDATECARDONLIST");
       boardId = currentState.selectedBid;
       var listId = action.listId;
       var cardId = action.cardId;
