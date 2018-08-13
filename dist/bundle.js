@@ -21717,10 +21717,10 @@ function getCurrentState(currentState) {
       lists: []
     };
 
-    var tempList = [];
+    var newList = [];
     board.lists.forEach(function (list) {
-      var currListIndex = tempList.length;
-      tempList[currListIndex] = {
+      var currListIndex = newList.length;
+      newList[currListIndex] = {
         name: list.name,
         cards: []
       };
@@ -21733,9 +21733,9 @@ function getCurrentState(currentState) {
         };
       });
 
-      tempList[currListIndex].cards = cardsList;
+      newList[currListIndex].cards = cardsList;
     });
-    nextState.boards[currIndex].lists = tempList;
+    nextState.boards[currIndex].lists = newList;
   });
   return nextState;
 }

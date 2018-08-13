@@ -104,7 +104,7 @@ function reducer(currentState = { selectedBid: -1, boards: [] }, action) {
 // Return Next State
 function getCurrentState(currentState) {
   var nextState = {};
-  'selectedBid' in currentState ? nextState.selectedBid = currentState.selectedBid:nextState.selectedBid = -1;
+  'selectedBid' in currentState ? nextState.selectedBid = currentState.selectedBid : nextState.selectedBid = -1;
   nextState.boards = [];
   currentState.boards.forEach((board) => {
     var currIndex = nextState.boards.length;
@@ -112,10 +112,10 @@ function getCurrentState(currentState) {
       name: board.name, lists: []
     };
 
-    var tempList = [];
+    var newList = [];
     board.lists.forEach((list) => {
-      var currListIndex = tempList.length;
-      tempList[currListIndex] = {
+      var currListIndex = newList.length;
+      newList[currListIndex] = {
         name: list.name, cards: []
       };
 
@@ -124,9 +124,9 @@ function getCurrentState(currentState) {
         cardsList[cardsList.length] = { name: card.name };
       });
 
-      tempList[currListIndex].cards = cardsList;
+      newList[currListIndex].cards = cardsList;
     });
-    nextState.boards[currIndex].lists = tempList;
+    nextState.boards[currIndex].lists = newList;
   });
   return nextState;
 }
